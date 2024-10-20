@@ -22,3 +22,6 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
 ### Installation
 
 1. Clone the repository:
+   ```bash
+   git clone https://github.com/Dark-GreenCat/RISC-V-Processor-on-FPGA-Digital-Design-2023-Course.git
+   cd RISC-V-Processor-on-FPGA-Digital-Design-2023-Course
