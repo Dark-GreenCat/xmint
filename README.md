@@ -25,3 +25,10 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
    ```bash
    git clone https://github.com/Dark-GreenCat/RISC-V-Processor-on-FPGA-Digital-Design-2023-Course.git
    cd RISC-V-Processor-on-FPGA-Digital-Design-2023-Course
+   ```
+
+2. Install Ibex's environment
+   ```bash
+   make install-ibex
+   ```
+   
