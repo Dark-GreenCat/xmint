@@ -32,7 +32,7 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
    make install-ibex
    ```
 
-   - Follow the Makefile in the Ibex repository for more useful commands.
+   - Follow the Makefile in the Ibex repository for more useful commands. For example:
       - To run Simple System:
          ```bash
          cd ibex
@@ -43,6 +43,7 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
          cd ibex
          make build-csr-test run-csr-test IBEX_CONFIG=opentitan
          ```
+   **List of `IBEX_CONFIG` values can be seen [here](ibex/ibex_configs.yaml)**
 3. Source the configuration
    ```bash
    source config.sh
@@ -51,6 +52,7 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
    Now you can use these following variables:
       - `XMINT_REPO_BASE`: The root directory of XMint repository
       - `IBEX_REPO_BASE`: The root directory of Ibex repository
-      - `Vibex_simple_system`: The simulator for Ibex Simple System
-      - `Vibex_riscv_compliance`: The simulator for Ibex RISCV Compliance
-      - `Vtb_cs_registers`: The simulator for Ibex CSR Test
+      - `Vibex_simple_system`: The simulator for Ibex Simple System. This simulator can be built with `make -C ibex/ build-simple-system IBEX_CONFIG=opentitan`
+      - `Vibex_riscv_compliance`: The simulator for Ibex RISCV Compliance. This simulator can be built with `make -C ibex/ build-riscv-compliance IBEX_CONFIG=opentitan`
+      - `Vtb_cs_registers`: The simulator for Ibex CSR Test. This simulator can be built with `make -C ibex/ build-csr-test IBEX_CONFIG=opentitan`
+
