@@ -32,7 +32,14 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
    make install-ibex
    ```
 
-   - Follow the Makefile in the Ibex repository for more useful commands. For example:
-   ```bash
-   make sw-simple-hello build-simple-system run-simple-system IBEX_CONFIG=opentitan
-   ```
+   - Follow the Makefile in the Ibex repository for more useful commands.
+      - To run Simple System:
+         ```bash
+         cd ibex
+         make sw-simple-hello build-simple-system run-simple-system IBEX_CONFIG=opentitan
+         ```
+      - To run CSR Test:
+         ```bash
+         cd ibex
+         make build-csr-test run-csr-test IBEX_CONFIG=opentitan
+         ```
