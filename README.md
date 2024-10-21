@@ -21,13 +21,13 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
 
 ### **3.2. Installation**
 
-1. Clone the repository:
+**1. Clone the repository:**
    ```bash
    git clone https://github.com/Dark-GreenCat/xmint.git
    cd xmint
    ```
 
-2. Install Ibex's environment
+**2. Install Ibex's environment:**
    ```bash
    make install-ibex
    ```
@@ -41,16 +41,60 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
          ```bash
          make -C ibex/ build-csr-test run-csr-test IBEX_CONFIG=opentitan
          ```
-   **List of `IBEX_CONFIG` values can be seen [here](ibex/ibex_configs.yaml)**
+   **List of `IBEX_CONFIG` values can be seen in [ibex/ibex_configs.yaml](ibex/ibex_configs.yaml)**
 
-3. Source the configuration
+### **3. Source the Configuration**
+
+Run the following command to set up your environment:
+
+```bash
+source config.sh
+```
+
+The script `config.sh` will provide the following variables:
+
+| Variable                          | Description                                         | Available after command                                      |
+|-----------------------------------|-----------------------------------------------------|--------------------------------------------------------------|
+| **`XMINT_REPO_BASE`**             | Root directory of the XMint repository              | —                                                            |
+| **`IBEX_REPO_BASE`**              | Root directory of the Ibex repository               | `make install-ibex`                                          |
+| **`RISCV_COMPLIANCE_REPO_BASE`**  | Root directory of the RISC-V Compliance repository  | `make install-riscv-compliance`                              |
+| **`Vibex_simple_system`**         | Simulator for the Ibex Simple System                | `make -C ibex/ build-simple-system IBEX_CONFIG=opentitan`    |
+| **`Vibex_riscv_compliance`**      | Simulator for RISC-V Compliance                     | `make -C ibex/ build-riscv-compliance IBEX_CONFIG=opentitan` |
+| **`Vtb_cs_registers`**            | Simulator for the Ibex CSR Test                     | `make -C ibex/ build-csr-test IBEX_CONFIG=opentitan`         |
+
+
+## **4. Optional Tasks**
+
+> **Note:** These operations require you to run `source config.sh` from the XMint root repository first.
+
+### **4.1. RISC-V Compliance Test**
+
+Verify the correctness of your implementation against the RISC-V specification by running the RISC-V compliance test. Follow these steps:
+
+**1. Clone the RISC-V Compliance Repository**:
+
+   Navigate to the XMint repository and install the RISC-V compliance tools:
    ```bash
-   source config.sh
+   cd $XMINT_REPO_BASE
+   make install-riscv-compliance
    ```
 
-   Now you can use these following variables:
-      - `XMINT_REPO_BASE`: The root directory of XMint repository
-      - `IBEX_REPO_BASE`: The root directory of Ibex repository
-      - `Vibex_simple_system`: The simulator for Ibex Simple System. This simulator can be built with `make -C ibex/ build-simple-system IBEX_CONFIG=opentitan`
-      - `Vibex_riscv_compliance`: The simulator for Ibex RISCV Compliance. This simulator can be built with `make -C ibex/ build-riscv-compliance IBEX_CONFIG=opentitan`
-      - `Vtb_cs_registers`: The simulator for Ibex CSR Test. This simulator can be built with `make -C ibex/ build-csr-test IBEX_CONFIG=opentitan`
+   This will create a configuration script named `config-riscv-compliance.sh`. You can modify this script based on the file [riscv-compliance/Makefile.include](riscv-compliance/Makefile.include) provided in the RISC-V Compliance repository.  
+   Note that `source config-riscv-compliance.sh` will overide the default value provided by RISC-V Compliance
+
+**2. Build the RISC-V Compliance Simulator**:
+   ```bash
+   make -C ibex/ build-riscv-compliance IBEX_CONFIG=opentitan
+   ```
+
+**3. Run the Compliance Test**:
+
+   Source the configuration script and execute the compliance test:
+   ```bash
+   source config-riscv-compliance.sh
+   make -C riscv-compliance/ clean build run verify
+   ```
+
+**4. View the Results**:
+
+   After running the test, check the output logs for compliance results. Look for any assertions or errors that may indicate areas needing attention.

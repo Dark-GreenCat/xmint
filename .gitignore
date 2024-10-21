@@ -1,2 +1,4 @@
 .vscode
 ibex
+riscv-compliance
+config-riscv-compliance.sh

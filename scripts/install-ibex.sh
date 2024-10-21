@@ -1,16 +1,13 @@
 #!/bin/bash
 
 # Get the directory of the script
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-
-# Change to that directory
-cd "$SCRIPT_DIR"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Load color definitions
-source color.sh
+source "$SCRIPT_DIR/../config.sh"
 
 # Get the directory of ibex
-IBEX_REPO_DIR="$SCRIPT_DIR/../ibex"
+IBEX_REPO_DIR="$IBEX_REPO_BASE"
 cd $IBEX_REPO_DIR
 
 # Function to print a header
@@ -43,6 +40,7 @@ prerequisites=(
     help2man
     perl
     python3
+    python3-pip
     make
     g++
     libfl2
@@ -97,6 +95,7 @@ cd "$IBEX_REPO_DIR"
 #=== INSTALL PYTHON DEPENDENCIES ===#
 
 print_header "Installing Python Dependencies"
+pip3 install --user -U fusesoc
 pip3 install -U -r python-requirements.txt
 
 #=== INSTALL libelf ===#
