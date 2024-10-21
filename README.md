@@ -43,3 +43,14 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
          cd ibex
          make build-csr-test run-csr-test IBEX_CONFIG=opentitan
          ```
+3. Source the configuration
+   ```bash
+   source config.sh
+   ```
+
+   Now you can use these following variables:
+      - `XMINT_REPO_BASE`: The root directory of XMint repository
+      - `IBEX_REPO_BASE`: The root directory of Ibex repository
+      - `Vibex_simple_system`: The simulator for Ibex Simple System
+      - `Vibex_riscv_compliance`: The simulator for Ibex RISCV Compliance
+      - `Vtb_cs_registers`: The simulator for Ibex CSR Test
