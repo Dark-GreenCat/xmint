@@ -31,4 +31,8 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
    ```bash
    make install-ibex
    ```
-   
+
+   - Follow the Makefile in the Ibex repository for more useful commands. For example:
+   ```bash
+   make sw-simple-hello build-simple-system run-simple-system IBEX_CONFIG=opentitan
+   ```
