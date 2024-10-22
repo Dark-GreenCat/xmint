@@ -17,6 +17,7 @@ The architecture comprises the following key components:
 - **Instruction Memory (IMEM)**: Stores the instructions to be executed by the CPU.
 - **Program Counter (PC)**: Tracks the address of the next instruction to be executed.
 - **Adder**: Performs arithmetic operations, particularly addition.
+- **Register File**: Stores data operands for instructions and facilitates reading and writing of register values.
 
 #### **2.2.1 Instruction Memory (IMEM)**
 
@@ -40,6 +41,18 @@ The Adder is a fundamental component in the XMint core, responsible for performi
 This functionality is crucial for the correct operation of the control flow within the processor.
 
 <img src="design/Adder.png" alt="Adder" width="400" height="auto">
+
+#### **2.2.4 Register File**
+
+The Register File is a vital component of the XMint core, responsible for storing and managing the CPU's registers. Key features include:
+
+- **Storage Capacity**: The Register File typically contains 32 registers (x0 to x31) that can store 32-bit values.
+- **Read and Write Operations**: It supports simultaneous read and write operations, allowing the CPU to access data quickly during instruction execution.
+- **Zero Register**: The zero register (x0) is hardwired to zero, providing a constant value for operations that require a zero input.
+
+The Register File plays a crucial role in executing instructions by supplying operands to the ALU and storing results.
+
+<img src="design/RegisterFile.png" alt="Register File" width="400" height="auto">
 
 ## **3. Datapath**
 
