@@ -16,6 +16,7 @@ The architecture comprises the following key components:
 
 - **Instruction Memory (IMEM)**: Stores the instructions to be executed by the CPU.
 - **Program Counter (PC)**: Tracks the address of the next instruction to be executed.
+- **Adder**
 
 #### **2.2.1 Instruction Memory (IMEM)**
 
@@ -28,6 +29,10 @@ The Instruction Memory (IMEM) is critical for holding the instructions that the 
 The Program Counter (PC) is a crucial component that holds the address of the next instruction to be fetched from memory. It increments with each clock cycle, ensuring the sequential execution of instructions unless a branch or jump instruction modifies its value.
 
 <img src="design/PC.png" alt="Program Counter" width="400" height="auto">
+
+#### **2.2.3 Adder**
+
+<img src="design/Adder.png" alt="Adder" width="400" height="auto">
 
 ## **3. Datapath**
 
