@@ -2,64 +2,43 @@
 
 ## **1. Introduction**
 
-The XMint project implements a RISC-V32 single cycle core using Verilog. This document details the design architecture, including the datapath and component descriptions.
+The XMint project implements a RISC-V32 single-cycle core using Verilog. This document provides a comprehensive overview of the design architecture, detailing the datapath and the core components involved in the implementation.
 
 ## **2. Design Overview**
 
 ### **2.1 Architecture**
 
-The XMint core is designed as a single-cycle processor, meaning that each instruction is executed in a single clock cycle. This design simplifies control logic and sets the foundation for potential pipelining in future revisions.
+The XMint core is designed as a single-cycle processor, where each instruction is executed within a single clock cycle. This design approach simplifies control logic and lays the groundwork for potential pipelining in future revisions, enhancing performance.
 
-### **2.2 Components**
+### **2.2 Core Components**
 
-The core consists of the following main components:
+The architecture comprises the following key components:
 
-- **Instruction Memory (IMEM)**
-- **Register File**
-- **ALU (Arithmetic Logic Unit)**
-- **Data Memory**
-- **Control Unit**
+- **Instruction Memory (IMEM)**: Stores the instructions to be executed by the CPU.
+- **Program Counter (PC)**: Tracks the address of the next instruction to be executed.
 
 #### **2.2.1 Instruction Memory (IMEM)**
 
-The IMEM holds the instructions for CPU.
+The Instruction Memory (IMEM) is critical for holding the instructions that the CPU will process.
 
 <img src="design/InstructionMemory.png" alt="Instruction Memory" width="400" height="auto">
 
-#### **2.2.2 Register File**
+#### **2.2.2 Program Counter (PC)**
 
-The register file stores data and supports operations for reading and writing to 32 registers.
+The Program Counter (PC) is a crucial component that holds the address of the next instruction to be fetched from memory. It increments with each clock cycle, ensuring the sequential execution of instructions unless a branch or jump instruction modifies its value.
 
-![Register File](path/to/register_file_image.png)
-
-#### **2.2.3 ALU (Arithmetic Logic Unit)**
-
-The ALU performs arithmetic and logical operations, processing inputs from the register file and generating outputs.
-
-![ALU](path/to/alu_image.png)
-
-#### **2.2.4 Data Memory**
-
-Data memory is utilized for storing variables and supports read and write operations.
-
-![Data Memory](path/to/data_memory_image.png)
-
-#### **2.2.5 Control Unit**
-
-The control unit generates signals based on the opcode of the fetched instruction, directing the operation of other components.
-
-![Control Unit](path/to/control_unit_image.png)
+<img src="design/PC.png" alt="Program Counter" width="400" height="auto">
 
 ## **3. Datapath**
 
-The datapath integrates all components, facilitating data flow during instruction execution. Below is a simplified diagram of the datapath for the XMint core.
+The datapath integrates all components, facilitating the flow of data during instruction execution. Below is a simplified diagram illustrating the datapath for the XMint core.
 
 ![Datapath Diagram](path/to/datapath_image.png)
 
 ## **4. Conclusion**
 
-The XMint project showcases the implementation of a RISC-V32 single cycle core using Verilog. The modular design enables easy expansion and testing of individual components. Future enhancements may include performance optimizations and the introduction of pipelining.
+The XMint project effectively demonstrates the implementation of a RISC-V32 single-cycle core using Verilog. The modular design not only allows for straightforward expansion and testing of individual components but also serves as a foundation for future enhancements, including performance optimizations and the potential introduction of pipelining.
 
 ## **5. References**
 
-- Computer Organization and Design - RISC-V Edition: The Hardware/Software Interface
+- **Computer Organization and Design - RISC-V Edition: The Hardware/Software Interface**
