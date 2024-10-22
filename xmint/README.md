@@ -16,7 +16,7 @@ The architecture comprises the following key components:
 
 - **Instruction Memory (IMEM)**: Stores the instructions to be executed by the CPU.
 - **Program Counter (PC)**: Tracks the address of the next instruction to be executed.
-- **Adder**
+- **Adder**: Performs arithmetic operations, particularly addition.
 
 #### **2.2.1 Instruction Memory (IMEM)**
 
@@ -31,6 +31,13 @@ The Program Counter (PC) is a crucial component that holds the address of the ne
 <img src="design/PC.png" alt="Program Counter" width="400" height="auto">
 
 #### **2.2.3 Adder**
+
+The Adder is a fundamental component in the XMint core, responsible for performing arithmetic addition. It is used primarily in two contexts:
+
+1. **PC Increment**: The Adder adds a constant value (typically 4) to the current value of the Program Counter (PC) to fetch the next instruction sequentially.
+2. **Branch Address Calculation**: When a branch instruction is executed, the Adder computes the target address by adding an offset to the current PC value.
+
+This functionality is crucial for the correct operation of the control flow within the processor.
 
 <img src="design/Adder.png" alt="Adder" width="400" height="auto">
 
