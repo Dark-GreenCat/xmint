@@ -38,7 +38,7 @@ The Program Counter (PC) is a crucial component that holds the address of the ne
 
 The datapath integrates all components, facilitating the flow of data during instruction execution. Below is a simplified diagram illustrating the datapath for the XMint core.
 
-![Datapath Diagram](path/to/datapath_image.png)
+<img src="design/Datapath.png" alt="Datapath" width="800" height="auto">
 
 ## **4. Conclusion**
 
