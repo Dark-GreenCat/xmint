@@ -14,17 +14,17 @@ The XMint core is designed as a single-cycle processor, meaning that each instru
 
 The core consists of the following main components:
 
-- **Instruction Fetch Unit (IFU)**
+- **Instruction Memory (IMEM)**
 - **Register File**
 - **ALU (Arithmetic Logic Unit)**
 - **Data Memory**
 - **Control Unit**
 
-#### **2.2.1 Instruction Fetch Unit (IFU)**
+#### **2.2.1 Instruction Memory (IMEM)**
 
-The IFU fetches instructions from memory and manages the program counter (PC).
+The IMEM holds the instructions for CPU.
 
-![Instruction Fetch Unit](design/a.drawio)
+<img src="design/InstructionMemory.png" alt="Instruction Memory" width="400" height="auto">
 
 #### **2.2.2 Register File**
 
