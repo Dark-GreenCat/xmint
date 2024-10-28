@@ -20,6 +20,7 @@ The architecture comprises the following key components:
 - **Register File**: Stores data operands for instructions and facilitates reading and writing of register values.
 - **ALU**: Executes arithmetic and logical operations on the data.
 - **Data Memory (DMEM)**: Stores data that the CPU accesses during instruction execution.
+- **Immediate Generation (ImmGen)**: Generates immediate values used in various instructions.
 
 #### **2.2.1 Instruction Memory (IMEM)**
 
@@ -85,6 +86,20 @@ Data Memory (DMEM) is a vital component of the XMint core, responsible for stori
 The Data Memory component is crucial for maintaining the state of programs and providing the necessary data for computation.
 
 <img src="design/DataMemory.png" alt="Data Memory" width="400" height="auto">
+
+#### **2.2.7 Immediate Generation (ImmGen)**
+
+The Immediate Generation unit (ImmGen) is essential for producing immediate values used in various instructions. Key features of ImmGen include:
+
+- **Immediate Value Extraction**: ImmGen extracts immediate values from the instruction encoding. These values are often used in arithmetic operations, branch instructions, and loading data.
+
+- **Sign Extension**: The unit performs sign extension to ensure that the immediate value has the correct sign when it is used in operations. This is particularly important for operations like subtraction, where negative values are involved.
+
+- **Support for Different Formats**: ImmGen supports multiple instruction formats (e.g., I-type, S-type) to generate the appropriate immediate values based on the type of instruction being executed.
+
+The Immediate Generation unit enhances the flexibility of the processor by enabling it to handle a wide range of instructions that require immediate data.
+
+<img src="design/ImmediateGeneration.png" alt="Immediate Generation" width="400" height="auto">
 
 ## **3. Datapath**
 
