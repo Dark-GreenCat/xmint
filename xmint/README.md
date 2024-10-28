@@ -18,6 +18,7 @@ The architecture comprises the following key components:
 - **Program Counter (PC)**: Tracks the address of the next instruction to be executed.
 - **Adder**: Performs arithmetic operations, particularly addition.
 - **Register File**: Stores data operands for instructions and facilitates reading and writing of register values.
+- **ALU**: Executes arithmetic and logical operations on the data.
 
 #### **2.2.1 Instruction Memory (IMEM)**
 
@@ -53,6 +54,22 @@ The Register File is a vital component of the XMint core, responsible for storin
 The Register File plays a crucial role in executing instructions by supplying operands to the ALU and storing results.
 
 <img src="design/RegisterFile.png" alt="Register File" width="400" height="auto">
+
+#### **2.2.5 ALU**
+
+The Arithmetic Logic Unit (ALU) is a critical component of the XMint core, responsible for performing a variety of arithmetic and logical operations. Key features of the ALU include:
+
+- **Arithmetic Operations**: The ALU can perform basic arithmetic operations such as addition, subtraction, multiplication, and division. In the context of RISC-V32, it primarily supports addition and subtraction.
+  
+- **Logical Operations**: It can execute logical operations like AND, OR, NOT, and XOR, essential for manipulating binary data and implementing conditional operations.
+
+- **Input Selection**: The ALU receives its inputs from the Register File, allowing it to operate on the values stored in the CPU's registers.
+
+- **Output**: The result of the ALU's computation is sent back to the Register File or to data memory, depending on the instruction type.
+
+The ALU is essential for executing instructions that require data manipulation and plays a crucial role in the overall functionality of the core.
+
+<img src="design/ALU.png" alt="ALU" width="400" height="auto">
 
 ## **3. Datapath**
 
