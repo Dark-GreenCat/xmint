@@ -120,6 +120,8 @@ The Multiplexor (Mux) is a critical component used to select one of several inpu
 
 The datapath integrates all components, facilitating the flow of data during instruction execution. It is divided into several parts to handle different operations efficiently.
 
+<img src="design/Datapath_Full.png" alt="Full Datapath" width="800" height="auto">
+
 ### **3.1 Datapath for Instruction Fetch**
 
 The Instruction Fetch datapath is responsible for retrieving the next instruction from memory based on the address provided by the Program Counter (PC). During this operation, the following steps occur:
