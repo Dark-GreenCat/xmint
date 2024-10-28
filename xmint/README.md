@@ -19,6 +19,7 @@ The architecture comprises the following key components:
 - **Adder**: Performs arithmetic operations, particularly addition.
 - **Register File**: Stores data operands for instructions and facilitates reading and writing of register values.
 - **ALU**: Executes arithmetic and logical operations on the data.
+- **Data Memory (DMEM)**: Stores data that the CPU accesses during instruction execution.
 
 #### **2.2.1 Instruction Memory (IMEM)**
 
@@ -60,7 +61,7 @@ The Register File plays a crucial role in executing instructions by supplying op
 The Arithmetic Logic Unit (ALU) is a critical component of the XMint core, responsible for performing a variety of arithmetic and logical operations. Key features of the ALU include:
 
 - **Arithmetic Operations**: The ALU can perform basic arithmetic operations such as addition, subtraction, multiplication, and division. In the context of RISC-V32, it primarily supports addition and subtraction.
-  
+
 - **Logical Operations**: It can execute logical operations like AND, OR, NOT, and XOR, essential for manipulating binary data and implementing conditional operations.
 
 - **Input Selection**: The ALU receives its inputs from the Register File, allowing it to operate on the values stored in the CPU's registers.
@@ -70,6 +71,20 @@ The Arithmetic Logic Unit (ALU) is a critical component of the XMint core, respo
 The ALU is essential for executing instructions that require data manipulation and plays a crucial role in the overall functionality of the core.
 
 <img src="design/ALU.png" alt="ALU" width="400" height="auto">
+
+#### **2.2.6 Data Memory (DMEM)**
+
+Data Memory (DMEM) is a vital component of the XMint core, responsible for storing data that the CPU needs to access during instruction execution. Key features of DMEM include:
+
+- **Storage Capability**: DMEM typically supports a range of addresses, allowing it to store a significant amount of data (e.g., 32-bit words).
+
+- **Read and Write Operations**: The Data Memory supports both read and write operations, enabling the CPU to fetch data from memory and store results back into memory as needed.
+
+- **Load and Store Instructions**: DMEM interacts closely with load (LW) and store (SW) instructions, which are essential for transferring data between the CPU and memory.
+
+The Data Memory component is crucial for maintaining the state of programs and providing the necessary data for computation.
+
+<img src="design/DataMemory.png" alt="Data Memory" width="400" height="auto">
 
 ## **3. Datapath**
 
