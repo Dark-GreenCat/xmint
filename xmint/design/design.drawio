@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" scale="10" border="10">
     <diagram name="ALU" id="aFOPh2S8-dFOvkW9cpVA">
-        <mxGraphModel dx="303" dy="130" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="1" shadow="0">
+        <mxGraphModel dx="753" dy="467" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="1" shadow="0">
             <root>
                 <mxCell id="i1fEUXFvdmfIEncg15va-0"/>
                 <mxCell id="i1fEUXFvdmfIEncg15va-1" parent="i1fEUXFvdmfIEncg15va-0"/>
@@ -87,7 +87,7 @@
             </root>
         </mxGraphModel>
     </diagram>
-    <diagram name="Datapath" id="ZPopBVOzQqgfZFZFJCgo">
+    <diagram name="Datapath_InstructionFetch" id="ZPopBVOzQqgfZFZFJCgo">
         <mxGraphModel dx="1350" dy="837" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="6tjD7OycLXDcRpEDW1J1-0"/>

@@ -73,9 +73,17 @@ The ALU is essential for executing instructions that require data manipulation a
 
 ## **3. Datapath**
 
-The datapath integrates all components, facilitating the flow of data during instruction execution. Below is a simplified diagram illustrating the datapath for the XMint core.
+The datapath integrates all components, facilitating the flow of data during instruction execution. It is divided into several parts to handle different operations efficiently. Below is the diagram and description for the Instruction Fetch operation.
 
-<img src="design/Datapath.png" alt="Datapath" width="800" height="auto">
+### **3.1 Datapath for Instruction Fetch**
+
+The Instruction Fetch datapath is responsible for retrieving the next instruction from memory based on the address provided by the Program Counter (PC). During this operation, the following steps occur:
+
+1. The Program Counter (PC) provides the address of the instruction to the Instruction Memory (IMEM).
+2. The IMEM retrieves the instruction stored at that address.
+3. The PC is incremented to point to the next instruction, preparing for the upcoming fetch cycle.
+
+<img src="design/Datapath_InstructionFetch.png" alt="Datapath for Instruction Fetch" width="800" height="auto">
 
 ## **4. Conclusion**
 
