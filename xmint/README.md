@@ -115,6 +115,18 @@ The Instruction Fetch datapath is responsible for retrieving the next instructio
 
 <img src="design/Datapath_InstructionFetch.png" alt="Datapath for Instruction Fetch" width="800" height="auto">
 
+### **3.2 Datapath for Branch**
+
+The Branch datapath is responsible for handling branch instructions, which modify the flow of execution based on conditions. The following steps outline this process:
+
+1. **Immediate Value Generation**: The ImmGen generates the immediate value from the instruction, which is often a signed offset.
+2. **Branch Target Calculation**: The Adder computes the target branch address by adding the immediate value to the current PC value.
+3. **Condition Evaluation**: The ALU evaluates the condition for the branch (e.g., checking if two registers are equal for a BEQ instruction).
+
+This mechanism allows for dynamic control flow in the execution of programs.
+
+<img src="design/Datapath_Branch.png" alt="Datapath for Branch" width="800" height="auto">
+
 ## **4. Conclusion**
 
 The XMint project effectively demonstrates the implementation of a RISC-V32 single-cycle core using Verilog. The modular design not only allows for straightforward expansion and testing of individual components but also serves as a foundation for future enhancements, including performance optimizations and the potential introduction of pipelining.
