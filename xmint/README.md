@@ -21,6 +21,7 @@ The architecture comprises the following key components:
 - **ALU**: Executes arithmetic and logical operations on the data.
 - **Data Memory (DMEM)**: Stores data that the CPU accesses during instruction execution.
 - **Immediate Generation (ImmGen)**: Generates immediate values used in various instructions.
+- **Multiplexor (Mux)**: Selects between multiple inputs to route to a single output.
 
 #### **2.2.1 Instruction Memory (IMEM)**
 
@@ -100,6 +101,20 @@ The Immediate Generation unit (ImmGen) is essential for producing immediate valu
 The Immediate Generation unit enhances the flexibility of the processor by enabling it to handle a wide range of instructions that require immediate data.
 
 <img src="design/ImmediateGeneration.png" alt="Immediate Generation" width="400" height="auto">
+
+#### **2.2.8 Multiplexor (Mux)**
+
+The Multiplexor (Mux) is a critical component used to select one of several input signals and forward the selected input into a single line. It plays a vital role in controlling the flow of data within the processor. Key features of the Mux include:
+
+- **Input Selection**: A Mux can have multiple inputs and is controlled by selection lines that determine which input to send to the output. This is essential for routing data from different sources based on the current operation.
+
+- **Data Paths**: The Mux is often used to select between the output of the ALU and the data from memory, allowing the processor to choose between different data paths depending on the instruction being executed.
+
+- **Simplifying Control Logic**: By using a Mux, the design can be simplified as it reduces the number of direct connections needed between components, making the overall architecture cleaner and easier to manage.
+
+- **Support for Various Operations**: Muxes are used in different parts of the datapath, including instruction decoding, ALU operation selection, and data routing to the Register File.
+
+<img src="design/Mux.png" alt="Multiplexor" width="400" height="auto">
 
 ## **3. Datapath**
 
