@@ -118,7 +118,7 @@ The Multiplexor (Mux) is a critical component used to select one of several inpu
 
 ## **3. Datapath**
 
-The datapath integrates all components, facilitating the flow of data during instruction execution. It is divided into several parts to handle different operations efficiently. Below is the diagram and description for the Instruction Fetch operation.
+The datapath integrates all components, facilitating the flow of data during instruction execution. It is divided into several parts to handle different operations efficiently.
 
 ### **3.1 Datapath for Instruction Fetch**
 
@@ -141,6 +141,22 @@ The Branch datapath is responsible for handling branch instructions, which modif
 This mechanism allows for dynamic control flow in the execution of programs.
 
 <img src="design/Datapath_Branch.png" alt="Datapath for Branch" width="800" height="auto">
+
+### **3.3 Datapath for Memory Instructions and R-Type Instructions**
+
+The datapath for Memory Instructions and R-Type Instructions integrates the components necessary to execute load/store and register-based operations. The following steps outline this process:
+
+1. **Instruction Fetch**: The instruction is fetched from IMEM using the PC, as previously described.
+2. **Immediate Value Generation**: For load/store instructions, the ImmGen generates the immediate value which will be added to the base address from the register.
+3. **ALU Operation (for R-Type)**: For R-Type instructions, the ALU receives input from the Register File, executes the specified operation (e.g., ADD, SUB), and produces a result.
+4. **Memory Access (for Load/Store)**:
+   - **Load Instruction (LW)**: The ALU calculates the effective address by adding the immediate value to the base address from a specified register. The Data Memory (DMEM) is then accessed to retrieve the data from the computed address.
+   - **Store Instruction (SW)**: Similar to LW, the ALU computes the effective address. The data to be stored is taken from another register and written to the computed address in DMEM.
+5. **Result Write-back**: The result from the ALU operation (for R-Type) or the loaded data (for LW) is written back to the Register File.
+
+This process ensures that both types of instructions can be executed efficiently, allowing for a seamless flow of data and control within the processor.
+
+<img src="design/Datapath_MemoryInstruction_and_RType.png" alt="Datapath for Memory Instructions and R-Type" width="800" height="auto">
 
 ## **4. Conclusion**
 
