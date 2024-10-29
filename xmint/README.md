@@ -23,6 +23,7 @@ The architecture comprises the following key components:
 - **Data Memory (DMEM)**: Stores data that the CPU accesses during instruction execution.
 - **Immediate Generation (ImmGen)**: Generates immediate values used in various instructions.
 - **Multiplexor (Mux)**: Selects between multiple inputs to route to a single output.
+- **Control Unit**: Directs operation by generating control signals for various components.
 
 #### **2.2.1 Instruction Memory (IMEM)**
 
@@ -132,6 +133,24 @@ The Multiplexor (Mux) is a critical component used to select one of several inpu
 - **Support for Various Operations**: Muxes are used in different parts of the datapath, including instruction decoding, ALU operation selection, and data routing to the Register File.
 
 <img src="design/Mux.png" alt="Multiplexor" width="400" height="auto">
+
+#### **2.2.10 Control Unit**
+
+The Control Unit (CU) orchestrates the overall operation of the XMint core by generating the necessary control signals for various components based on the instruction being executed. Key features of the Control Unit include:
+
+- **Instruction Decoding**: The CU interprets the opcode of the fetched instruction to identify the operation that needs to be performed. This involves determining whether the instruction is a load, store, arithmetic operation, branch, or other types.
+
+- **Control Signal Generation**: Based on the decoded instruction, the CU produces control signals that dictate the operation of the ALU, the selection of inputs to the Muxes, and the read/write operations for the Register File and Data Memory.
+
+- **Branch Control**: The CU manages the branching logic, ensuring that the Program Counter (PC) is updated correctly for branch and jump instructions, directing the flow of execution as needed.
+
+- **Timing Coordination**: The Control Unit ensures that all components operate in synchrony with the clock signal, managing the timing of read/write operations and ALU processing to maintain proper sequence.
+
+- **Modular Design**: The CU is designed to be modular, allowing for easy updates and enhancements in response to new instruction formats or changes in architecture.
+
+This component is critical for ensuring that the processor operates correctly and efficiently, coordinating the actions of all other components in the core.
+
+<img src="design/ControlUnit.png" alt="Control Unit" width="400" height="auto">
 
 ## **3. Datapath**
 
