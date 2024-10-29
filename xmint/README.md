@@ -10,6 +10,8 @@ The XMint project implements a RISC-V32 single-cycle core using Verilog. This do
 
 The XMint core is designed as a single-cycle processor, where each instruction is executed within a single clock cycle. This design approach simplifies control logic and lays the groundwork for potential pipelining in future revisions, enhancing performance.
 
+<img src="design/FullArchitecture.png" alt="Full Architecture" width="1200" height="auto">
+
 ### **2.2 Core Components**
 
 The architecture comprises the following key components:
@@ -156,7 +158,7 @@ This component is critical for ensuring that the processor operates correctly an
 
 The datapath integrates all components, facilitating the flow of data during instruction execution. It is divided into several parts to handle different operations efficiently.
 
-<img src="design/Datapath_Full.png" alt="Full Datapath" width="800" height="auto">
+<img src="design/Datapath_Full.png" alt="Full Datapath" width="1200" height="auto">
 
 ### **3.1 Datapath for Instruction Fetch**
 
@@ -166,7 +168,7 @@ The Instruction Fetch datapath is responsible for retrieving the next instructio
 2. The IMEM retrieves the instruction stored at that address.
 3. The PC is incremented to point to the next instruction, preparing for the upcoming fetch cycle.
 
-<img src="design/Datapath_InstructionFetch.png" alt="Datapath for Instruction Fetch" width="800" height="auto">
+<img src="design/Datapath_InstructionFetch.png" alt="Datapath for Instruction Fetch" width="1200" height="auto">
 
 ### **3.2 Datapath for Branch**
 
@@ -178,7 +180,7 @@ The Branch datapath is responsible for handling branch instructions, which modif
 
 This mechanism allows for dynamic control flow in the execution of programs.
 
-<img src="design/Datapath_Branch.png" alt="Datapath for Branch" width="800" height="auto">
+<img src="design/Datapath_Branch.png" alt="Datapath for Branch" width="1200" height="auto">
 
 ### **3.3 Datapath for Memory Instructions and R-Type Instructions**
 
@@ -194,7 +196,7 @@ The datapath for Memory Instructions and R-Type Instructions integrates the comp
 
 This process ensures that both types of instructions can be executed efficiently, allowing for a seamless flow of data and control within the processor.
 
-<img src="design/Datapath_MemoryInstruction_and_RType.png" alt="Datapath for Memory Instructions and R-Type" width="800" height="auto">
+<img src="design/Datapath_MemoryInstruction_and_RType.png" alt="Datapath for Memory Instructions and R-Type" width="1200" height="auto">
 
 ## **4. Conclusion**
 
