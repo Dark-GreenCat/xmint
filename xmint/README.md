@@ -19,6 +19,7 @@ The architecture comprises the following key components:
 - **Adder**: Performs arithmetic operations, particularly addition.
 - **Register File**: Stores data operands for instructions and facilitates reading and writing of register values.
 - **ALU**: Executes arithmetic and logical operations on the data.
+- **ALU Control**: Generates control signals for the ALU based on the instruction type.
 - **Data Memory (DMEM)**: Stores data that the CPU accesses during instruction execution.
 - **Immediate Generation (ImmGen)**: Generates immediate values used in various instructions.
 - **Multiplexor (Mux)**: Selects between multiple inputs to route to a single output.
@@ -74,7 +75,23 @@ The ALU is essential for executing instructions that require data manipulation a
 
 <img src="design/ALU.png" alt="ALU" width="400" height="auto">
 
-#### **2.2.6 Data Memory (DMEM)**
+#### **2.2.6 ALU Control**
+
+The ALU Control unit is responsible for generating the control signals required by the ALU based on the instruction being executed. It takes inputs from the instruction's **Opcode**, **Funct3**, and **Funct7** fields to determine the specific operation that the ALU should perform. Key features include:
+
+- **Control Signal Generation**: The ALU Control unit interprets the instruction encoding to produce the appropriate control signals for the ALU. These signals dictate whether the ALU performs an arithmetic operation (like addition or subtraction) or a logical operation (such as AND or OR).
+
+- **Support for Different Instruction Types**: By handling various instruction formats, the ALU Control can manage R-Type, I-Type, and other instruction formats effectively.
+
+- **Combining Funct3 and Funct7**: The unit combines the Funct3 and Funct7 fields to differentiate between operations that may use the same opcode but require different ALU behaviors.
+
+- **Output to ALU**: The generated control signals are sent to the ALU, guiding its operations during instruction execution.
+
+This component ensures that the ALU functions correctly based on the specific requirements of each instruction.
+
+<img src="design/ALUControl.png" alt="ALU Control" width="400" height="auto">
+
+#### **2.2.7 Data Memory (DMEM)**
 
 Data Memory (DMEM) is a vital component of the XMint core, responsible for storing data that the CPU needs to access during instruction execution. Key features of DMEM include:
 
@@ -88,7 +105,7 @@ The Data Memory component is crucial for maintaining the state of programs and p
 
 <img src="design/DataMemory.png" alt="Data Memory" width="400" height="auto">
 
-#### **2.2.7 Immediate Generation (ImmGen)**
+#### **2.2.8 Immediate Generation (ImmGen)**
 
 The Immediate Generation unit (ImmGen) is essential for producing immediate values used in various instructions. Key features of ImmGen include:
 
@@ -102,7 +119,7 @@ The Immediate Generation unit enhances the flexibility of the processor by enabl
 
 <img src="design/ImmediateGeneration.png" alt="Immediate Generation" width="400" height="auto">
 
-#### **2.2.8 Multiplexor (Mux)**
+#### **2.2.9 Multiplexor (Mux)**
 
 The Multiplexor (Mux) is a critical component used to select one of several input signals and forward the selected input into a single line. It plays a vital role in controlling the flow of data within the processor. Key features of the Mux include:
 
