@@ -155,7 +155,7 @@ This component is critical for ensuring that the processor operates correctly an
 
 <img src="design/ControlUnit.png" alt="Control Unit" width="400" height="auto">
 
-#### **2.2.11 Interface Dual Port AXI**
+#### **2.2.11 Interface AXI**
 
 The custom AXI interface in the XMint core facilitates communication between the processor and external peripherals or memory. Its primary functions include:
 
@@ -170,6 +170,7 @@ The custom AXI interface in the XMint core facilitates communication between the
 This interface enhances the functionality of the XMint core by enabling seamless interaction with external components.
 
 <img src="design/InterfaceDualPortAXI.png" alt="Interface Dual Port AXI" width="400" height="auto">
+<img src="design/InterfaceSinglePortAXI.png" alt="Interface Single Port AXI" width="400" height="auto">
 
 ## **3. Datapath**
 
