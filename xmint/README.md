@@ -26,6 +26,7 @@ The architecture comprises the following key components:
 - **Immediate Generation (ImmGen)**: Generates immediate values used in various instructions.
 - **Multiplexor (Mux)**: Selects between multiple inputs to route to a single output.
 - **Control Unit**: Directs operation by generating control signals for various components.
+- **Interface AXI**: Interface to communicate with peripherals
 
 #### **2.2.1 Instruction Memory (IMEM)**
 
@@ -153,6 +154,22 @@ The Control Unit (CU) orchestrates the overall operation of the XMint core by ge
 This component is critical for ensuring that the processor operates correctly and efficiently, coordinating the actions of all other components in the core.
 
 <img src="design/ControlUnit.png" alt="Control Unit" width="400" height="auto">
+
+#### **2.2.11 Interface Dual Port AXI**
+
+The custom AXI interface in the XMint core facilitates communication between the processor and external peripherals or memory. Its primary functions include:
+
+- **Data Transfer**: Enables efficient read and write operations, allowing the CPU to access data stored in external devices or memory.
+
+- **Control Signals**: Manages control signals to coordinate data flow, ensuring that requests and responses are properly synchronized.
+
+- **Addressing**: Provides a mechanism for addressing external memory locations, allowing the CPU to specify where to read or write data.
+
+- **Simple Protocol**: Implements a straightforward protocol for communication, simplifying the integration with various peripherals.
+
+This interface enhances the functionality of the XMint core by enabling seamless interaction with external components.
+
+<img src="design/InterfaceDualPortAXI.png" alt="Interface Dual Port AXI" width="400" height="auto">
 
 ## **3. Datapath**
 
