@@ -79,7 +79,7 @@ Verify the correctness of your implementation against the RISC-V specification b
    make install-riscv-compliance
    ```
 
-   This will create a configuration script named `config-riscv-compliance.sh`. You can modify this script based on the file [riscv-compliance/Makefile.include](riscv-compliance/Makefile.include) provided in the RISC-V Compliance repository.  
+   This will create a configuration script named `config-riscv-compliance.sh`. You can modify this script based on the file [riscv-compliance/Makefile.include](riscv-compliance/Makefile.include) provided in the RISC-V Compliance repository.
    Note that `source config-riscv-compliance.sh` will overide the default value provided by RISC-V Compliance
 
 **2. Build the RISC-V Compliance Simulator**:

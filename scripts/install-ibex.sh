@@ -95,7 +95,6 @@ cd "$IBEX_REPO_DIR"
 #=== INSTALL PYTHON DEPENDENCIES ===#
 
 print_header "Installing Python Dependencies"
-pip3 install --user -U fusesoc
 pip3 install -U -r python-requirements.txt
 
 #=== INSTALL libelf ===#
@@ -114,10 +113,10 @@ install_package srecord
 
 print_header "Installing RISC-V Compiler Toolchain"
 TOOLCHAIN_URL="https://github.com/lowRISC/lowrisc-toolchains/releases/latest"
-echo "Please download the latest RISC-V toolchain from: $TOOLCHAIN_URL"
-echo "Follow the instructions provided in the repository to install it."
+print_color $YELLOW "Please download the latest RISC-V toolchain from: $TOOLCHAIN_URL"
+print_color $YELLOW "Follow the instructions provided in the repository to install it manually."
 echo ""  # Extra space for better readability
 
 print_color $BG_GREEN "Installation completed successfully!"
-print_color $YELLOW "Make sure to install RISC-V Compiler Toolchain as described above"
+print_color $RED "Make sure to manually install RISC-V Compiler Toolchain as described above"
 print_color $YELLOW "It's recommended to add '~/.local/bin' to PATH"
