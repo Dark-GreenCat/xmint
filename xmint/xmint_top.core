@@ -1,0 +1,45 @@
+CAPI=2:
+name: "Dark-GreenCat:xmint:xmint_top:0.0.1"
+description: "XMint, a small RV32 CPU core"
+
+filesets:
+  files_rtl:
+    files:
+      - rtl/xmint_top.v
+    file_type: verilogSource
+
+  files_check_tool_requirements:
+    depend:
+     - lowrisc:tool:check_tool_requirements
+
+targets:
+  default: &default_target
+    filesets:
+      - files_rtl
+      - files_check_tool_requirements
+    toplevel: xmint_top
+
+  lint:
+    <<: *default_target
+    default_tool: verilator
+    tools:
+      verilator:
+        mode: lint-only
+        verilator_options:
+          - "-Wall"
+          # RAM primitives wider than 64bit (required for ECC) fail to build in
+          # Verilator without increasing the unroll count (see Verilator#1266)
+          - "--unroll-count 72"
+  format:
+    filesets:
+      - files_rtl
+    default_tool: veribleformat
+    toplevel: ibex_top
+    tools:
+      veribleformat:
+        verible_format_args:
+          - "--inplace"
+          - "--formal_parameters_indentation=indent"
+          - "--named_parameter_indentation=indent"
+          - "--named_port_indentation=indent"
+          - "--port_declarations_indentation=indent"
