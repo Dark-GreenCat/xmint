@@ -9,7 +9,7 @@ install-riscv-compliance:
 	-git clone https://github.com/riscv/riscv-compliance.git -b old-framework-2.x riscv-compliance
 	./$(SCRIPTS_DIR)/install-riscv-compliance.sh
 
-install-ibex-demo-system:
+install-ibex-demo-system: install-ibex
 	-git clone https://github.com/lowRISC/ibex-demo-system.git ibex-demo-system
 	-cd ibex-demo-system && git checkout a1201cf2b99f8f4149c0971c04c655adbf1753c4 && cd ..
 	./$(SCRIPTS_DIR)/install-ibex-demo-system.sh
