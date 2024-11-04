@@ -14,3 +14,6 @@ integrate-xmint-to-ibex:
 
 uninstall-xmint-from-ibex:
 	-cd ibex && git restore . && git checkout fb49826c16aab4902f2bedb5456f2f9ec118a97a && cd ..
+
+tidy-up:
+	-rm *.fst *.log *.csv

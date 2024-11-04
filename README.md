@@ -87,6 +87,14 @@ If you need to uninstall XMint from Ibex, use the following command:
 make uninstall-xmint-from-ibex
 ```
 
+**Step 5. Tidy up the output file present in XMint repository**
+
+In case there are too many output file and you want to remove them, just run the command:
+
+```bash
+make tidy-up
+```
+
 ## **4. Optional Tasks**
 
 > **Note:** These operations require you to run `source config.sh` from the XMint root repository first.
