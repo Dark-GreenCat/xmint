@@ -1,6 +1,8 @@
 .vscode
 build
 ibex
+ibex-demo-system
 verilator
+openocd-code
 riscv-compliance
 config-riscv-compliance.sh

@@ -14,3 +14,6 @@ export Vtb_cs_registers="$IBEX_REPO_BASE/build/lowrisc_ibex_tb_cs_registers_0/si
 
 # Get the variables for riscv-compliance
 export RISCV_COMPLIANCE_REPO_BASE="$XMINT_REPO_BASE/riscv-compliance"
+
+# Get the variables for ibex-demo-system
+export IBEX_DEMO_SYSTEM_REPO_BASE="$XMINT_REPO_BASE/ibex-demo-system"
