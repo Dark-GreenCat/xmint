@@ -111,6 +111,12 @@ print_header "Installing srecord"
 echo ""  # Extra space for better readability
 install_package srecord
 
+#=== INSTALL gtkwave ===#
+
+print_header "Installing gtkwave"
+echo ""  # Extra space for better readability
+install_package gtkwave
+
 #=== INSTALL RISC-V TOOLCHAIN ===#
 
 print_header "Installing RISC-V Compiler Toolchain"
