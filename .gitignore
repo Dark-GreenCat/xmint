@@ -1,5 +1,6 @@
 .vscode
 build
 ibex
+verilator
 riscv-compliance
 config-riscv-compliance.sh

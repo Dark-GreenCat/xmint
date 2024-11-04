@@ -1,5 +1,5 @@
 CAPI=2:
-name: "Dark-GreenCat:xmint:xmint_top:0.0.1"
+name: "Dark-GreenCat:xmint:xmint_top:0.1"
 description: "XMint, a small RV32 CPU core"
 
 filesets:

@@ -21,13 +21,13 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
 
 ### **3.2. Installation**
 
-**1. Clone the repository:**
+**Step 1. Clone the repository:**
    ```bash
    git clone https://github.com/Dark-GreenCat/xmint.git
    cd xmint
    ```
 
-**2. Install Ibex's environment:**
+**Step 2. Install Ibex's environment:**
    ```bash
    make install-ibex
    ```
@@ -43,7 +43,7 @@ This project implements a RISC-V processor using Verilog, aimed at providing a h
          ```
    **List of `IBEX_CONFIG` values can be seen in [ibex/ibex_configs.yaml](ibex/ibex_configs.yaml)**
 
-### **3. Source the Configuration**
+**Step 3. Source the Configuration**
 
 Run the following command to set up your environment:
 
@@ -62,6 +62,30 @@ The script `config.sh` will provide the following variables:
 | **`Vibex_riscv_compliance`**      | Simulator for RISC-V Compliance                     | `make -C ibex/ build-riscv-compliance IBEX_CONFIG=opentitan` |
 | **`Vtb_cs_registers`**            | Simulator for the Ibex CSR Test                     | `make -C ibex/ build-csr-test IBEX_CONFIG=opentitan`         |
 
+
+**Step 4. Integrate XMint to Ibex's Environment**
+
+- **Step 4.1. Integrate XMint to Ibex**
+
+Run the following command to install XMint into the Ibex environment:
+
+```bash
+make integrate-xmint-to-ibex
+```
+
+Now you can execute any command from Ibex for XMint. For example, the command below will build the simulation with XMint's core and then run the simulation:
+
+```bash
+make -C ibex/ sw-simple-hello build-simple-system run-simple-system
+```
+
+- **Step 4.2. (Optional) Uninstall XMint from Ibex**
+
+If you need to uninstall XMint from Ibex, use the following command:
+
+```bash
+make uninstall-xmint-from-ibex
+```
 
 ## **4. Optional Tasks**
 

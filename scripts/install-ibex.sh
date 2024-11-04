@@ -63,6 +63,8 @@ for package in "${prerequisites[@]}"; do
     install_package "$package"
 done
 
+cd "$XMINT_REPO_BASE"
+
 # Obtain Verilator Source
 if [ ! -d "verilator" ]; then
     git clone https://github.com/verilator/verilator
