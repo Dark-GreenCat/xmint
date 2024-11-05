@@ -7,35 +7,35 @@ module xmint_top
     parameter WIDTH=32
 ) (
     // Clock and Reset
-    input  logic                         clk_i,
-    input  logic                         rst_ni,
+    input  wire                         clk_i,
+    input  wire                         rst_ni,
 
-    input  logic [31:0]                  boot_addr_i,
+    input  wire [31:0]                  boot_addr_i,
 
     // Instruction memory interface
-    output logic                         instr_req_o,
-    input  logic                         instr_gnt_i,
-    input  logic                         instr_rvalid_i,
-    output logic [31:0]                  instr_addr_o,
-    input  logic [31:0]                  instr_rdata_i,
-    input  logic [6:0]                   instr_rdata_intg_i,
-    input  logic                         instr_err_i,
+    output wire                         instr_req_o,
+    input  wire                         instr_gnt_i,
+    input  wire                         instr_rvalid_i,
+    output wire [31:0]                  instr_addr_o,
+    input  wire [31:0]                  instr_rdata_i,
+    input  wire [6:0]                   instr_rdata_intg_i,
+    input  wire                         instr_err_i,
 
     // Data memory interface
-    output logic                         data_req_o,
-    input  logic                         data_gnt_i,
-    input  logic                         data_rvalid_i,
-    output logic                         data_we_o,
-    output logic [3:0]                   data_be_o,
-    output logic [31:0]                  data_addr_o,
-    output logic [31:0]                  data_wdata_o,
-    output logic [6:0]                   data_wdata_intg_o,
-    input  logic [31:0]                  data_rdata_i,
-    input  logic [6:0]                   data_rdata_intg_i,
-    input  logic                         data_err_i,
+    output wire                         data_req_o,
+    input  wire                         data_gnt_i,
+    input  wire                         data_rvalid_i,
+    output wire                         data_we_o,
+    output wire [3:0]                   data_be_o,
+    output wire [31:0]                  data_addr_o,
+    output wire [31:0]                  data_wdata_o,
+    output wire [6:0]                   data_wdata_intg_o,
+    input  wire [31:0]                  data_rdata_i,
+    input  wire [6:0]                   data_rdata_intg_i,
+    input  wire                         data_err_i,
 
     // CPU Control Signals
-    input  logic [3:0]                   fetch_enable_i
+    input  wire [3:0]                   fetch_enable_i
 );
 
     assign instr_req_o = 1'b0;
