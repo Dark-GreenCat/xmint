@@ -38,4 +38,13 @@ module xmint_top
     input  logic [3:0]                   fetch_enable_i
 );
 
+    assign instr_req_o = 1'b0;
+    assign instr_addr_o = 32'hBABECAFE;
+    assign data_req_o = 1'b0;
+    assign data_we_o = 1'b0;
+    assign data_be_o = 4'b0000;
+    assign data_addr_o = 32'hDEADBEEF;
+    assign data_wdata_o = 32'hCAFEBABE;
+    assign data_wdata_intg_o = 1'b0;
+
 endmodule
