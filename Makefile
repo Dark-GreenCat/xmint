@@ -24,7 +24,7 @@ uninstall-xmint-from-ibex:
 	-cd ibex && git restore . && git checkout fb49826c16aab4902f2bedb5456f2f9ec118a97a && cd ..
 
 uninstall-xmint-from-ibex-demo-system:
-	-cd ibex-demo-system && git restore . && git checkout fa1201cf2b99f8f4149c0971c04c655adbf1753c4a && cd ..
+	-cd ibex-demo-system && git restore . && git checkout a1201cf2b99f8f4149c0971c04c655adbf1753c4 && cd ..
 
 tidy-up:
 	-rm *.fst *.log *.csv
