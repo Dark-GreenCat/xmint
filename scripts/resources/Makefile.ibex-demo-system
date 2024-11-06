@@ -1,0 +1,5 @@
+build-demo-system:
+	fusesoc --cores-root=. --cores-root=../xmint run --target=sim --tool=verilator --setup --build lowrisc:ibex:demo_system
+
+build-zcu104:
+	fusesoc --cores-root=. --cores-root=../xmint run --target=synth --setup --build lowrisc:ibex:demo_system

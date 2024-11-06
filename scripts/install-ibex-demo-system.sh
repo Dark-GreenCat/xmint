@@ -91,5 +91,6 @@ print_header "Building OpenOCD"
 make
 sudo make install
 
+cp "$SCRIPT_DIR/resources/Makefile.ibex-demo-system" "$XMINT_REPO_BASE/ibex-demo-system/Makefile"
 
 print_color $BG_GREEN "Installation completed successfully!"

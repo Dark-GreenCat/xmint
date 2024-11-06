@@ -1,0 +1,3 @@
+lint_off -rule UNUSEDPARAM -file "*/rtl/ibex_top.sv"
+lint_off -rule UNUSEDSIGNAL -file "*/rtl/ibex_top.sv"
+lint_off -rule UNDRIVEN -file "*/rtl/ibex_top.sv"
