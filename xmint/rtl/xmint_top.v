@@ -45,6 +45,6 @@ module xmint_top
     assign data_be_o = 4'b0000;
     assign data_addr_o = 32'hDEADBEEF;
     assign data_wdata_o = 32'hCAFEBABE;
-    assign data_wdata_intg_o = 1'b0;
+    assign data_wdata_intg_o = 7'b0000000;
 
 endmodule

@@ -11,6 +11,7 @@ declare -A TARGET_FILES=(
     ["insert_dependency"]="ibex/ibex_top.core Dark-GreenCat:xmint:xmint_top"
     ["patch_ibex_top_sv"]="$SCRIPT_DIR/resources/ibex_top.sv.patch ibex/rtl/ibex_top.sv"
     ["patch_ibex_simple_system"]="ibex/examples/simple_system/rtl/ibex_simple_system.sv"
+    ["change_fusesoc_root"]="ibex/Makefile"
 )
 
 # Function to print messages with a specified color
@@ -80,9 +81,18 @@ patch_ibex_simple_system() {
     fi
 }
 
+# Change the fusesoc root
+change_fusesoc_root() {
+    local file="$1"
+    print_message $CYAN "Updating cores-root path in '$file'..."
+    sed -i 's/--cores-root=\.\([^\.]\|$\)/--cores-root=.. /g' "$file"
+    print_message $GREEN "Cores-root path updated in '$file'."
+}
+
 # Execute the patching functions using parameters from the TARGET_FILES array
 insert_dependency ${TARGET_FILES["insert_dependency"]}
 patch_ibex_top_sv ${TARGET_FILES["patch_ibex_top_sv"]}
 patch_ibex_simple_system ${TARGET_FILES["patch_ibex_simple_system"]}
+change_fusesoc_root ${TARGET_FILES["change_fusesoc_root"]}
 
 print_message "$BG_GREEN" "Patch process completed successfully!"
