@@ -22,12 +22,8 @@ print_header() {
 
 # Function to install a package
 install_package() {
-    if ! dpkg -l | grep -qw "$1"; then
-        echo "Installing $1..."
-        sudo apt-get install "$1" -y
-    else
-        echo "$1 is already installed."
-    fi
+    echo "Installing $1..."
+    sudo apt-get install "$1" -y
 }
 
 #=== INSTALL VERILATOR ===#
