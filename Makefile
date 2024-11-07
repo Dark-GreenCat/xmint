@@ -1,4 +1,4 @@
-SCRIPTS_DIR = scripts
+SCRIPTS_DIR := scripts
 
 install-ibex:
 	-git clone https://github.com/lowRISC/ibex.git ibex
@@ -21,10 +21,11 @@ integrate-xmint-to-ibex-demo-system:
 	./$(SCRIPTS_DIR)/integrate-xmint-to-ibex-demo-system.sh
 
 uninstall-xmint-from-ibex:
-	-cd ibex && git restore . && git checkout fb49826c16aab4902f2bedb5456f2f9ec118a97a && cd ..
+	-cd ibex && git restore . && git clean -f && git reset --hard fb49826c16aab4902f2bedb5456f2f9ec118a97a && cd ..
 
 uninstall-xmint-from-ibex-demo-system:
-	-cd ibex-demo-system && git restore . && git checkout a1201cf2b99f8f4149c0971c04c655adbf1753c4 && cd ..
+	-cd ibex-demo-system && git restore . && git clean -f && git reset --hard a1201cf2b99f8f4149c0971c04c655adbf1753c4 && cd ..
+	cp "./$(SCRIPTS_DIR)/resources/Makefile.ibex-demo-system" "./ibex-demo-system/Makefile"
 
 tidy-up:
 	-rm *.fst *.log *.csv
