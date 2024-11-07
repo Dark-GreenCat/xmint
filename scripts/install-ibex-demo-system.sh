@@ -78,14 +78,18 @@ if [ ! -d "openocd-code" ]; then
     git clone https://git.code.sf.net/p/openocd/code openocd-code
 fi
 
-cd openocd-code
+if command -v openocd &> /dev/null; then
+    print_color $GREEN "OpenOCD has been already installed."
+else
+    cd openocd-code
 
-# Build
-print_header "Building OpenOCD"
-./bootstrap
-./configure --enable-armjtagew
-make
-sudo make install
+    # Build
+    print_header "Building OpenOCD"
+    ./bootstrap
+    ./configure --enable-armjtagew
+    make
+    sudo make install
+fi
 
 cp "$SCRIPT_DIR/resources/Makefile.ibex-demo-system" "$XMINT_REPO_BASE/ibex-demo-system/Makefile"
 

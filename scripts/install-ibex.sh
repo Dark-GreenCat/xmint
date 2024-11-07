@@ -66,26 +66,30 @@ if [ ! -d "verilator" ]; then
     git clone https://github.com/verilator/verilator
 fi
 
-cd verilator
-git pull
+if command -v verilator &> /dev/null; then
+    print_color $GREEN "Verilator has been already installed."
+else
+    cd verilator
+    git pull
 
-# Auto Configure
-print_header "Configuring Verilator"
-autoconf
+    # Auto Configure
+    print_header "Configuring Verilator"
+    autoconf
 
-# Set VERILATOR_ROOT
-export VERILATOR_ROOT="$(pwd)"
-print_color $GREEN "VERILATOR_ROOT set to: $VERILATOR_ROOT"
+    # Set VERILATOR_ROOT
+    export VERILATOR_ROOT="$(pwd)"
+    print_color $GREEN "VERILATOR_ROOT set to: $VERILATOR_ROOT"
 
-# Compile Verilator
-print_header "Compiling Verilator"
-./configure
-make -j "$(nproc)"
+    # Compile Verilator
+    print_header "Compiling Verilator"
+    ./configure
+    make -j "$(nproc)"
 
-# Test Verilator
-print_header "Running Verilator Tests"
-make test
-sudo make install
+    # Test Verilator
+    print_header "Running Verilator Tests"
+    make test
+    sudo make install
+fi
 
 # Return to the original directory
 cd "$IBEX_REPO_DIR"
