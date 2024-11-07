@@ -6,6 +6,7 @@ verilator
 openocd-code
 riscv-compliance
 config-riscv-compliance.sh
+config-sim.sh
 *.fst
 *.log
 *.csv

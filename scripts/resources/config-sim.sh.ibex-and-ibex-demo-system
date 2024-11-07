@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Export variables for Vibex Simple System
+export Vibex_simple_system="ibex/build/lowrisc_ibex_ibex_simple_system_0/sim-verilator/Vibex_simple_system"
+export IBEX_SIMPLE_SYSTEM_SW="ibex/examples/sw/simple_system/hello_test/hello_test.vmem"
+export IBEX_SIMPLE_SYSTEM_TERM_AFTER_CYCLE=0
+export IBEX_SIMPLE_SYSTEM_WAVEFORM_FILENAME="ibex_simple_system"
+
+# Export variables for Vibex Demo System
+export Vibex_demo_system="ibex-demo-system/build/lowrisc_ibex_demo_system_0/sim-verilator/Vtop_verilator"
+export IBEX_DEMO_SYSTEM_SW="ibex-demo-system/sw/c/build/demo/hello_world/demo"
+export IBEX_DEMO_SYSTEM_TERM_AFTER_CYCLE=1000000
+export IBEX_DEMO_SYSTEM_WAVEFORM_FILENAME="ibex_demo_system"
+
+echo "Variables exported successfully."
