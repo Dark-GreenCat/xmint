@@ -12,9 +12,6 @@ program-zcu104:
 sw-hello-world-demo:
 	mkdir -p sw/c/build && pushd sw/c/build && cmake .. && make && popd
 
-run-demo-system:
-	$(Vibex-demo-system) --meminit=ram,./sw/c/build/demo/hello_world/demo
-
 demo-system-program = sw/c/build/demo/hello_world/demo
 sw-hello-world-demo: $(demo-system-program)
 
