@@ -120,11 +120,38 @@ insert_lint_rule() {
     fi
 }
 
+add_board_zcu104() {
+    local src_dir="scripts/resources"
+    local target_dir="ibex-demo-system"
+
+    print_message "$CYAN" "Adding ZCU104 board files..."
+
+    # Define the files to copy
+    declare -A files=(
+        ["top_zcu104.sv"]="$target_dir/rtl/fpga/"
+        ["pins_zcu104.xdc"]="$target_dir/data"
+        ["ibex_demo_system.core"]="$target_dir"
+        ["openocd-zcu104-olimex-arm-usb-ocd-h.cfg"]="$target_dir/util"
+    )
+
+    # Loop through files and copy them
+    for src_file in "${!files[@]}"; do
+        local target_path="${files[$src_file]}"
+
+        if cp -f "$src_dir/$src_file.ibex-demo-system" "$target_path/$src_file"; then
+            print_message "$GREEN" "Successfully copied $src_file to $target_path."
+        else
+            print_message "$RED" "Error: Failed to copy $src_file to $target_path."
+        fi
+    done
+}
+
 # Execute the patching functions using parameters from the TARGET_FILES array
 patch_ibex_demo_system ${TARGET_FILES["patch_ibex_demo_system"]}
 patch_ibex_top_sv ${TARGET_FILES["patch_ibex_top_sv"]}
 create_makefile ${TARGET_FILES["create_makefile"]}
 insert_dependency ${TARGET_FILES["insert_dependency"]}
 insert_lint_rule ${TARGET_FILES["insert_lint_rule"]}
+add_board_zcu104
 
 print_message "$BG_GREEN" "Patch process completed successfully!"
