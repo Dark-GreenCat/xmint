@@ -83,10 +83,33 @@ patch_ibex_simple_system() {
 
 # Change the fusesoc root
 change_fusesoc_root() {
-    local file="$1"
-    print_message $CYAN "Updating cores-root path in '$file'..."
-    sed -i 's/--cores-root=\.\([^\.]\|$\)/--cores-root=.. /g' "$file"
-    print_message $GREEN "Cores-root path updated in '$file'."
+    local makefile="$1"
+    local search_string="fusesoc"
+    local cores_root=" --cores-root=../xmint"
+
+    print_message $CYAN "Updating cores-root path in '$makefile'..."
+
+    if [[ ! -f "$makefile" ]]; then
+        print_message $RED "Makefile does not exist: $makefile"
+        return 1
+    fi
+
+    # Check if the search string exists and if the cores-root is already present
+    if grep -q "$search_string" "$makefile"; then
+        if ! grep -q "$cores_root" "$makefile"; then
+            # Escape special characters in the search string and cores_root
+            local escaped_search_string=$(printf '%s\n' "$search_string" | sed 's/[\/&]/\\&/g')
+            local escaped_cores_root=$(printf '%s\n' "$cores_root" | sed 's/[\/&]/\\&/g')
+
+            # Insert the cores-root option immediately after "fusesoc"
+            sed -i "s/$escaped_search_string/$escaped_search_string$escaped_cores_root/" "$makefile"
+            print_message $GREEN "Added '$cores_root' after '$search_string' in $makefile"
+        else
+            print_message $YELLOW "'$cores_root' already exists after '$search_string' in $makefile. No changes made."
+        fi
+    else
+        print_message $RED "'$search_string' not found in $makefile"
+    fi
 }
 
 # Execute the patching functions using parameters from the TARGET_FILES array
