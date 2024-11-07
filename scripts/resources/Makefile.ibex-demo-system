@@ -1,5 +1,31 @@
+SHELL := /bin/bash
+
 build-demo-system:
 	fusesoc --cores-root=. --cores-root=../xmint run --target=sim --tool=verilator --setup --build lowrisc:ibex:demo_system
 
 build-zcu104:
 	fusesoc --cores-root=. --cores-root=../xmint run --target=synth --setup --build lowrisc:ibex:demo_system
+
+sw-hello-world-demo:
+	mkdir -p sw/c/build && pushd sw/c/build && cmake .. && make && popd
+
+run-demo-system:
+	$(Vibex-demo-system) --meminit=ram,./sw/c/build/demo/hello_world/demo
+
+demo-system-program = sw/c/build/demo/hello_world/demo
+sw-hello-world-demo: $(demo-system-program)
+
+.PHONY: $(demo-system-program)
+$(demo-system-program):
+	mkdir -p sw/c/build && pushd sw/c/build && cmake .. && make && popd
+
+Vibex-demo-system = \
+      build/lowrisc_ibex_demo_system_0/sim-verilator/Vtop_verilator
+$(Vibex-demo-system):
+	@echo "$@ not found"
+	@echo "Run \"make build-demo-system\" to create the dependency"
+	@false
+
+run-demo-system: sw-hello-world-demo | $(Vibex-demo-system)
+	$(Vibex-demo-system) \
+		--raminit=$(demo-system-program)

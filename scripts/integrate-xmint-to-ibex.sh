@@ -9,7 +9,7 @@ source "$SCRIPT_DIR/../config.sh"
 # Define the target files and their associated parameters
 declare -A TARGET_FILES=(
     ["insert_dependency"]="ibex/ibex_top.core Dark-GreenCat:xmint:xmint_top"
-    ["patch_ibex_top_sv"]="$SCRIPT_DIR/resources/ibex_top.sv.patch ibex/rtl/ibex_top.sv"
+    ["patch_ibex_top_sv"]="$SCRIPT_DIR/resources/ibex_top.sv.ibex ibex/rtl/ibex_top.sv"
     ["patch_ibex_simple_system"]="ibex/examples/simple_system/rtl/ibex_simple_system.sv"
     ["change_fusesoc_root"]="ibex/Makefile"
 )

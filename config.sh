@@ -17,3 +17,4 @@ export RISCV_COMPLIANCE_REPO_BASE="$XMINT_REPO_BASE/riscv-compliance"
 
 # Get the variables for ibex-demo-system
 export IBEX_DEMO_SYSTEM_REPO_BASE="$XMINT_REPO_BASE/ibex-demo-system"
+export Vibex_demo_system="$IBEX_DEMO_SYSTEM_REPO_BASE/build/lowrisc_ibex_demo_system_0/sim-verilator/Vtop_verilator"
