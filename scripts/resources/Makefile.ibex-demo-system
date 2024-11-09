@@ -3,11 +3,14 @@ SHELL := /bin/bash
 build-demo-system:
 	fusesoc --cores-root=. --cores-root=../xmint run --target=sim --tool=verilator --setup --build lowrisc:ibex:demo_system
 
-build-zcu104:
+build-artya7:
 	fusesoc --cores-root=. --cores-root=../xmint run --target=synth --setup --build lowrisc:ibex:demo_system
 
+build-zcu104:
+	fusesoc --cores-root=. --cores-root=../xmint run --target=synth_zcu104 --setup --build lowrisc:ibex:demo_system
+
 program-zcu104:
-	$(MAKE) -C ./build/lowrisc_ibex_demo_system_0/synth-vivado/ pgm
+	$(MAKE) -C ./build/lowrisc_ibex_demo_system_0/synth_zcu104-vivado/ pgm
 
 sw-hello-world-demo:
 	mkdir -p sw/c/build && pushd sw/c/build && cmake .. && make && popd
