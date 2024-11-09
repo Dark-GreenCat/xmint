@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Exporting variables from the Makefile
+export VERILATOR="verilator"
+export VERILATOR_FLAGS="--binary --trace --timing -Wno-TIMESCALEMOD"
+
+export TB_FILES="tb_xmint_mux.v"
+export RTL_FILES="xmint_mux.v"
+
+export GTKWAVE="gtkwave"
